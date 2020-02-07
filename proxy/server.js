@@ -14,6 +14,12 @@ const CAROUSEL_PORT = process.env.CAROUSEL_PORT || 50002;
 const ABOUT_PORT = process.env.ABOUT_PORT || 50001;
 const REVIEWS_PORT = process.env.REVIEWS_PORT || 50000;
 
+const BOOKING_HOSTNAME = process.env.BOOKING_HOSTNAME || 'localhost';
+const CAROUSEL_HOSTNAME = process.env.CAROUSEL_HOSTNAME || 'localhost';
+const ABOUT_HOSTNAME = process.env.ABOUT_HOSTNAME || 'localhost';
+const REVIEWS_HOSTNAME = process.env.REVIEWS_HOSTNAME || 'localhost';
+
+
 const html =
 `<!DOCTYPE html>
 <html lang="en">
@@ -32,10 +38,10 @@ const html =
     <div id="reviews"></div>
 
 
-    <script src="http://127.0.0.1:${BOOKING_PORT}/bundle.js"></script>
-    <script src="http://127.0.0.1:${CAROUSEL_PORT}/bundle.js"></script>
-    <script src="http://127.0.0.1:${ABOUT_PORT}/bundle.js"></script>
-    <script src="http://127.0.0.1:${REVIEWS_PORT}/bundle.js"></script>
+    <script src="http://${BOOKING_HOSTNAME}:${BOOKING_PORT}/bundle.js"></script>
+    <script src="http://${CAROUSEL_HOSTNAME}:${CAROUSEL_PORT}/bundle.js"></script>
+    <script src="http://${ABOUT_HOSTNAME}:${ABOUT_PORT}/bundle.js"></script>
+    <script src="http://${REVIEWS_HOSTNAME}:${REVIEWS_PORT}/bundle.js"></script>
 
   </body>
 </html>`;
@@ -44,7 +50,7 @@ const html =
 
 // BOOKING
 app.post('/api/booking/:id', (req, res) => {
-  axios.post(`http://127.0.0.1:${BOOKING_PORT}${req.url}`, {...req.body})
+  axios.post(`http://${BOOKING_HOSTNAME}:${BOOKING_PORT}${req.url}`, {...req.body})
     .then(data => data.data)
     .then(data => res.send(data))
     .catch(err => console.log(`error at proxy server post at ${BOOKING_PORT}/api/booking/:id`, err));
@@ -53,7 +59,7 @@ app.post('/api/booking/:id', (req, res) => {
 
 // CAROUSEL
 app.get('/api/carousel/:id', (req, res) => {
-  axios.get(`http://127.0.0.1:${CAROUSEL_PORT}${req.url}`)
+  axios.get(`http://${CAROUSEL_HOSTNAME}:${CAROUSEL_PORT}${req.url}`)
     .then(data => data.data)
     .then(data => res.send(data))
     .catch(err => console.log(`error at proxy server get at ${CAROUSEL_PORT}/api/carousel/:id`, err));
@@ -62,7 +68,7 @@ app.get('/api/carousel/:id', (req, res) => {
 
 // ABOUT
 app.get('/api/about/:id', (req, res) => {
-  axios.get(`http://127.0.0.1:${ABOUT_PORT}${req.url}`)
+  axios.get(`http://${ABOUT_HOSTNAME}:${ABOUT_PORT}${req.url}`)
     .then(data => data.data)
     .then(data => res.send({data}))
     .catch(err => console.log(`error at proxy server get at ${ABOUT_PORT}/api/about/:id`, err));
@@ -71,7 +77,7 @@ app.get('/api/about/:id', (req, res) => {
 
 // REVIEWS
 app.get('/api/reviews/:id', (req, res) => {
-  axios.get(`http://127.0.0.1:${REVIEWS_PORT}${req.url}`)
+  axios.get(`http://${REVIEWS_HOSTNAME}:${REVIEWS_PORT}${req.url}`)
   .then(response => response.data)
   .then(data => res.send(data))
   .catch(err => console.log('error at proxy serving about',err));
