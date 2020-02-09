@@ -27,15 +27,21 @@ const html =
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/12/styles/style.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/92139872d0.js" crossorigin="anonymous"></script>
     <title>Proxy Server</title>
   </head>
   <body>
+    <div style="margin: 0 6% 0 6%;">
 
-    <div id="booking"></div>
-    <div id="carousel"></div>
-    <div id="about"></div>
-    <div id="reviews"></div>
+      <div style="display: flex">
+        <div id="booking" ></div>
+        <div id="carousel" ></div>
+      </div>
+
+      <div id="about"></div>
+      <div id="reviews" style="margin-top: 12px"></div>
+    </div>
 
 
     <script src="http://${BOOKING_HOSTNAME}:${BOOKING_PORT}/bundle.js"></script>
@@ -82,6 +88,12 @@ app.get('/api/reviews/:id', (req, res) => {
   .then(data => res.send(data))
   .catch(err => console.log('error at proxy serving about',err));
 });
+
+app.get('/:id/styles/:file', (req, res) => {
+  axios.get(`http://${REVIEWS_HOSTNAME}:${REVIEWS_PORT}${req.url}`)
+  .then(response => response.data)
+  .then(data => res.send(data))
+})
 
 
 
