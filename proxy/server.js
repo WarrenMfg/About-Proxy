@@ -39,8 +39,8 @@ const html =
         <div id="carousel" ></div>
       </div>
 
-      <div id="about"></div>
-      <div id="reviews" style="margin-top: 12px"></div>
+      <div id="about" style="margin: 12px 0"></div>
+      <div id="reviews"></div>
     </div>
 
 
