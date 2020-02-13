@@ -45,7 +45,7 @@ const html =
 
     <script src="http://${BOOKING_HOSTNAME}:${BOOKING_PORT}/bundle.js"></script>
     <script src="http://${CAROUSEL_HOSTNAME}:${CAROUSEL_PORT}/bundle.js"></script>
-    <script src="http://${ABOUT_HOSTNAME}:${ABOUT_PORT}/bundle.js.br"></script>
+    <script src="http://${ABOUT_HOSTNAME}:${ABOUT_PORT}/bundle.js"></script>
     <script src="http://${REVIEWS_HOSTNAME}:${REVIEWS_PORT}/bundle.js"></script>
 
   </body>
