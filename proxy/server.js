@@ -27,7 +27,6 @@ const html =
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/12/styles/style.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/92139872d0.js" crossorigin="anonymous"></script>
     <title>Proxy Server</title>
   </head>
@@ -46,7 +45,7 @@ const html =
 
     <script src="http://${BOOKING_HOSTNAME}:${BOOKING_PORT}/bundle.js"></script>
     <script src="http://${CAROUSEL_HOSTNAME}:${CAROUSEL_PORT}/bundle.js"></script>
-    <script src="http://${ABOUT_HOSTNAME}:${ABOUT_PORT}/bundle.js"></script>
+    <script src="http://${ABOUT_HOSTNAME}:${ABOUT_PORT}/bundle.js.br"></script>
     <script src="http://${REVIEWS_HOSTNAME}:${REVIEWS_PORT}/bundle.js"></script>
 
   </body>
